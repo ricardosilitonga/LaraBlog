@@ -16,9 +16,22 @@
 //});
 
 
-Route::get('/', function () {
-    return view('blog.index');
-});
+Route::get('/', [
+    'uses' => 'BlogController@index',
+    'as' => ''
+]);
+
+//Route::get('/collection1', [
+//    'uses'  => 'BlogController@collection_class',
+//]);
+//
+//Route::get('/collection2', [
+//    'uses'  => 'BlogController@collect_method',
+//]);
+//
+//Route::get('/collection3', [
+//    'uses'  => 'BlogController@search_data',
+//]);
 
 Route::get('/blog/show', function () {
     return view('blog.show');
