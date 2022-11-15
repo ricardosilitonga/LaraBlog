@@ -21,7 +21,7 @@ class PostsTableSeeder extends Seeder
         // generate 10 dummy posts
         for ($i=1; $i<10; $i++) {
 
-            $image = 'Post_Image_' . rand(1, 5) . 'jpg';
+            $image = 'Post_Image_' . rand(1, 5) . '.jpg';
             $date = date('Y-m-d H:i:s', strtotime("2022-11-14 22:59:00 + {$i} days"));
 
             $posts[] = [
