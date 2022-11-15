@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Post whereSlug($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Post whereTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Post whereUpdatedAt($value)
+ * @property-read mixed $image_url
  */
 class Post extends Model
 {
