@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -30,20 +31,35 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
-    public function author() {
-        return $this->belongsTo('App\User');
+    protected $dates = ['published_at'];
+
+    public function author()
+    {
+        return $this->belongsTo('App\User', 'author_id');
     }
 
-    public function getImageUrlAttribute($value) {
+    public function getImageUrlAttribute($value)
+    {
         $imageUrl = '';
-        if (! is_null($this->image)) {
+        if (!is_null($this->image)) {
             $imagePath = public_path() . '/img/' . $this->image;
             if (file_exists($imagePath)) $imageUrl = asset('img/' . $this->image);
         }
         return $imageUrl;
     }
 
-    public function getDateAttribute($value) {
+    public function scopeLatestFirst($query)
+    {
+        return $query->orderBy('created_at', 'desc');
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('published_at', '<=', Carbon::now());
+    }
+
+    public function getDateAttribute($value)
+    {
         return $this->created_at->diffForHumans();
     }
 }
