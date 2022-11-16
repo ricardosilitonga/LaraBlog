@@ -10,10 +10,21 @@ use App\Http\Requests;
 
 class BlogController extends Controller
 {
-    public function index() {
-        $posts = Post::all();
-//        dd(compact('posts'));
+    protected $limit = 3;
+
+    public function index()
+    {
+        // Eager Loading
+        $posts = Post::with('author')->orderBy('created_at', 'desc')->simplePaginate($this->limit);
+//        dd(get_class($posts));
+//        $posts = Post::with('author')->latest()->get();
         return view('blog.index', compact('posts'));
+
+        // Testing N+1 query problem
+//        \DB::enableQueryLog();
+//        $posts = Post::with('author')->get();
+//        view('blog.index', compact('posts'))->render();
+//        dd(\DB::getQueryLog());
     }
 
 //    public function collection_class(){
@@ -60,4 +71,24 @@ class BlogController extends Controller
 //        echo $marks->where('ID', '011176645')."<br/>";
 //        echo $marks->where('marks.CSE409', 88);
 //    }
+
+    public function testing()
+    {
+        // Clone date Carbon static object
+        $date = \Carbon\Carbon::create(2022, 11, 12, 9);
+        $posts = array();
+
+        echo $date;
+        echo '<br>';
+
+        for ($i=1; $i<=10; $i++) {
+            $date = $date->addDays(1);
+//            echo $date. '<br>';
+            $posts[] = ['created_at' => clone $date];
+        }
+
+        foreach ($posts as $post) {
+            echo $post['created_at'] .'<br>';
+        }
+    }
 }
