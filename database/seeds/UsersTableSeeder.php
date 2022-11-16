@@ -18,20 +18,21 @@ class UsersTableSeeder extends Seeder
         // generate 3 users/authors
         DB::table('users')->insert(
             [
-                'name' => 'JaneDoe',
-                'email' => 'janedoe@gmail.com',
-                'password' => bcrypt('secret')
-            ],
-            [
-                'name' => 'JohnDoe',
-                'email' => 'johndoe@gmail.com',
-                'password' => bcrypt('secret')
-            ],
-            [
-                'name' => 'Ricardo',
-                'email' => 'ricardo@gmail.com',
-                'password' => bcrypt('secret')
-            ]
-        );
+                [
+                    'name' => 'JaneDoe',
+                    'email' => 'janedoe@gmail.com',
+                    'password' => bcrypt('secret')
+                ],
+                [
+                    'name' => 'JohnDoe',
+                    'email' => 'johndoe@gmail.com',
+                    'password' => bcrypt('secret')
+                ],
+                [
+                    'name' => 'Ricardo',
+                    'email' => 'ricardo@gmail.com',
+                    'password' => bcrypt('secret')
+                ]
+            ]);
     }
 }
