@@ -18,7 +18,7 @@
 
 Route::get('/', [
     'uses' => 'BlogController@index',
-    'as' => ''
+    'as' => 'blog'
 ]);
 
 Route::get('/testing', [
