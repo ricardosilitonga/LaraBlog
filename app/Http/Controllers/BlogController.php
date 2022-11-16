@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -14,11 +15,25 @@ class BlogController extends Controller
 
     public function index()
     {
+        $posts = Post::with('author')->published()->latestFirst()->paginate($this->limit);
+        return view('blog.index', compact('posts'));
+
+
         // Eager Loading
-        $posts = Post::with('author')->orderBy('created_at', 'desc')->simplePaginate($this->limit);
+//        $posts = Post::with('author')
+//                ->where('published_at', '<=', Carbon::now())
+//                ->orderBy('created_at', 'desc')
+//                ->paginate($this->limit);
+
+//        \DB::enableQueryLog();
+//        $posts = Post::with('author')->latestFirst()->get();
+//        view('blog.index', compact('posts'))->render;
+//        dd(\DB::getQueryLog());
+
+//        $posts = Post::with('author')->latest()->get();
 //        dd(get_class($posts));
 //        $posts = Post::with('author')->latest()->get();
-        return view('blog.index', compact('posts'));
+//        return view('blog.index', compact('posts'));
 
         // Testing N+1 query problem
 //        \DB::enableQueryLog();
