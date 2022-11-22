@@ -50,7 +50,7 @@ class Post extends Model
 
     public function scopeLatestFirst($query)
     {
-        return $query->orderBy('created_at', 'desc');
+        return $query->orderBy('published_at', 'desc');
     }
 
     public function scopePublished($query)
@@ -60,6 +60,6 @@ class Post extends Model
 
     public function getDateAttribute($value)
     {
-        return $this->created_at->diffForHumans();
+        return is_null($this->published_at) ? '' : $this->published_at->diffForHumans();
     }
 }
