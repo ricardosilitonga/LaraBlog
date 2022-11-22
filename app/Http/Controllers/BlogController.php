@@ -15,9 +15,12 @@ class BlogController extends Controller
 
     public function index()
     {
-        $posts = Post::with('author')->published()->latestFirst()->paginate($this->limit);
-        return view('blog.index', compact('posts'));
+        $posts = Post::with('author')
+            ->latestFirst()
+            ->published()
 
+            ->paginate($this->limit);
+        return view('blog.index', compact('posts'));
 
         // Eager Loading
 //        $posts = Post::with('author')
@@ -40,6 +43,10 @@ class BlogController extends Controller
 //        $posts = Post::with('author')->get();
 //        view('blog.index', compact('posts'))->render();
 //        dd(\DB::getQueryLog());
+    }
+
+    public function show(Post $post) {
+        return view('blog.show', compact('post'));
     }
 
 //    public function collection_class(){
@@ -96,14 +103,14 @@ class BlogController extends Controller
         echo $date;
         echo '<br>';
 
-        for ($i=1; $i<=10; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $date = $date->addDays(1);
 //            echo $date. '<br>';
             $posts[] = ['created_at' => clone $date];
         }
 
         foreach ($posts as $post) {
-            echo $post['created_at'] .'<br>';
+            echo $post['created_at'] . '<br>';
         }
     }
 }
