@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.45 on 2022-11-15.
+ * Generated for Laravel 5.2.45 on 2022-11-28.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11367,7 +11367,47 @@ namespace {
     }
 
 
+    class Markdown extends \GrahamCampbell\Markdown\Facades\Markdown{
+        
+        /**
+         * Converts CommonMark to HTML.
+         *
+         * @param string $commonMark
+         * @return string 
+         * @api 
+         * @static 
+         */
+        public static function convertToHtml($commonMark){
+            return \League\CommonMark\Converter::convertToHtml($commonMark);
+        }
+        
+    }
+
+
 }
 
 
 
+namespace Illuminate\Support {
+    /**
+     * Methods commonly used in migrations
+     *
+     * @method Fluent after(string $column) Add the after modifier
+     * @method Fluent charset(string $charset) Add the character set modifier
+     * @method Fluent collation(string $collation) Add the collation modifier
+     * @method Fluent comment(string $comment) Add comment
+     * @method Fluent default(mixed $value) Add the default modifier
+     * @method Fluent first() Select first row
+     * @method Fluent index(string $name = null) Add the in dex clause
+     * @method Fluent on(string $column) `on` of a foreign key
+     * @method Fluent onDelete(string $action) `on delete` of a foreign key
+     * @method Fluent onUpdate(string $action) `on update` of a foreign key
+     * @method Fluent primary() Add the primary key modifier
+     * @method Fluent references(string $table) `references` of a foreign key
+     * @method Fluent nullable() Add the nullable modifier
+     * @method Fluent unique(string $name = null) Add unique index clause
+     * @method Fluent unsigned() Add the unsigned modifier
+     * @method Fluent useCurrent() Add the default timestamp value
+     */
+    class Fluent {}
+}

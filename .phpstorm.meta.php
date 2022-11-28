@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2022-11-15.
+    * Generated on 2022-11-28.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -37,6 +37,10 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
+            'markdown.environment' instanceof \League\CommonMark\Environment,
+            'markdown' instanceof \League\CommonMark\Converter,
+            'markdown.compiler' instanceof \GrahamCampbell\Markdown\Compilers\MarkdownCompiler,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -116,7 +120,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
             '' == '@',
@@ -146,6 +149,10 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
+            'markdown.environment' instanceof \League\CommonMark\Environment,
+            'markdown' instanceof \League\CommonMark\Converter,
+            'markdown.compiler' instanceof \GrahamCampbell\Markdown\Compilers\MarkdownCompiler,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -225,7 +232,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
         ],
         \App::make('') => [
             '' == '@',
@@ -255,6 +261,10 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
+            'markdown.environment' instanceof \League\CommonMark\Environment,
+            'markdown' instanceof \League\CommonMark\Converter,
+            'markdown.compiler' instanceof \GrahamCampbell\Markdown\Compilers\MarkdownCompiler,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -334,7 +344,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
         ],
         \app('') => [
             '' == '@',
@@ -364,6 +373,10 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
+            'markdown.environment' instanceof \League\CommonMark\Environment,
+            'markdown' instanceof \League\CommonMark\Converter,
+            'markdown.compiler' instanceof \GrahamCampbell\Markdown\Compilers\MarkdownCompiler,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -443,7 +456,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
         ],
     ];
 }

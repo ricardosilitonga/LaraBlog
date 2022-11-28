@@ -32,6 +32,14 @@ namespace App{
  * @method static \Illuminate\Database\Query\Builder|\App\Post whereTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Post whereUpdatedAt($value)
  * @property-read mixed $image_url
+ * @property \Carbon\Carbon $published_at
+ * @property-read \App\User $author
+ * @property-read mixed $date
+ * @property-read mixed $body_html
+ * @property-read mixed $excerpt_html
+ * @method static \Illuminate\Database\Query\Builder|\App\Post wherePublishedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post latestFirst()
+ * @method static \Illuminate\Database\Query\Builder|\App\Post published()
  */
 	class Post extends \Eloquent {}
 }
@@ -55,6 +63,7 @@ namespace App{
  * @method static \Illuminate\Database\Query\Builder|\App\User wherePassword($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Post[] $posts
  */
 	class User extends \Eloquent {}
 }
