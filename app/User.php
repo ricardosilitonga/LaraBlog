@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Markdown;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
@@ -44,6 +45,25 @@ class User extends Authenticatable
     ];
 
     public function posts() {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post', 'author_id');
+    }
+
+    public function getBioHtmlAttribute($value)
+    {
+        return $this->bio ? Markdown::convertToHtml(e($this->bio)) : NULL;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function gravatar()
+    {
+        $email = $this->email;
+        $default = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/240px-User_font_awesome.svg.png";
+        $size = 100;
+
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
     }
 }
