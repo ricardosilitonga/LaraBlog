@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,11 +16,19 @@ class BlogController extends Controller
 
     public function index()
     {
+//        $categories = Category::with(['posts' => function($query) {
+//            $query->where('published_at', '<=', Carbon::now());
+//        }])->orderBy('title', 'asc')->get();
+
+//        $categories = Category::with(['posts' => function ($query) {
+//            $query->published();
+//        }])->orderBy('title', 'asc')->get();
+
         $posts = Post::with('author')
             ->latestFirst()
             ->published()
-
             ->paginate($this->limit);
+
         return view('blog.index', compact('posts'));
 
         // Eager Loading
@@ -45,7 +54,42 @@ class BlogController extends Controller
 //        dd(\DB::getQueryLog());
     }
 
-    public function show(Post $post) {
+    public function category(Category $category)
+    {
+
+        $category_name = $category->title;
+
+//        $categories = Category::with(['posts' => function($query) {
+//            $query->where('published_at', '<=', Carbon::now());
+//        }])->orderBy('title', 'asc')->get();
+
+//        $categories = Category::with(['posts' => function ($query) {
+//            $query->published();
+//        }])->orderBy('title', 'asc')->get();
+
+//        $posts = Post::with('author')
+//            ->latestFirst()
+//            ->published()
+//            ->where('category_id', $id)
+//            ->paginate($this->limit);
+
+
+        $posts = $category->posts()
+            ->with('author')
+            ->published()
+            ->latestFirst()
+            ->paginate($this->limit);
+
+        return view('blog.index', compact('posts', 'category_name'));
+
+    }
+
+    public function show(Post $post)
+    {
+//        $categories = Category::with(['posts' => function ($query) {
+//            $query->published();
+//        }])->orderBy('title', 'asc')->get();
+
         return view('blog.show', compact('post'));
     }
 
