@@ -102,6 +102,14 @@ class BlogController extends Controller
 
     public function show(Post $post)
     {
+        // Update Posts set view_count = view_count + 1 where id = ?
+        // First Way
+//        $view_count = $post->view_count + 1;
+//        $post->update(['view_count' => $view_count]);
+
+        // Second Way
+        $post->increment('view_count');
+
 //        $categories = Category::with(['posts' => function ($query) {
 //            $query->published();
 //        }])->orderBy('title', 'asc')->get();

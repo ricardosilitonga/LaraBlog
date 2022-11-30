@@ -34,6 +34,8 @@ class Post extends Model
 {
     protected $dates = ['published_at'];
 
+//    protected $fillable = ['view_count'];
+
     public function author()
     {
         return $this->belongsTo('App\User');
