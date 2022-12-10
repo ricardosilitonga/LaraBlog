@@ -55,3 +55,6 @@ Route::get('/testing', [
 Route::get('/blog/show', function () {
     return view('blog.show');
 });
+Route::auth();
+
+Route::get('/home', 'Backend\HomeController@index');
